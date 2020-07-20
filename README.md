@@ -6,8 +6,8 @@
    - date
    - budget
    - private (boolean)
-- Use strong params in the controller and create new Party when the form is submitted. 
-- Redirect users to the part show page after a new party is created
+- Use strong params in the controller and create a new Party when the form is submitted. 
+- Redirect users to the party show page after a new party is created
 - Add a form to edit and update a party. 
 
 # Instructions
