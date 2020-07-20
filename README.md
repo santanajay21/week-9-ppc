@@ -1,3 +1,11 @@
+# Part 3 Instructions
+
+- Create a Category model that just has a name attribute. Each party should belong to a category
+- Create a Supply model - each supply will have a name attribute. A party can have many supplies and each supply should be able to be used by many parties.
+- Turn the Party new form into a nested form so that you can choose from an existing category or create a new one when you create a party. 
+- Add fields for supplies so that you can create new supplies when you create a party. 
+- Display the associations on the Party show page. 
+
 # Part 2 Instructions
 
 - Add routes for the new and create actions
@@ -10,7 +18,7 @@
 - Redirect users to the party show page after a new party is created
 - Add a form to edit and update a party. 
 
-# Instructions
+# Part 1 Instructions
 
 - Make a Party model with the following attributes:
    - name
