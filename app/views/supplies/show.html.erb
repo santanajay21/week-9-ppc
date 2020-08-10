@@ -1,0 +1,10 @@
+<h1><%= @supply.name %></h1>
+<h2>Quanity: <%= @supply.tot_quantity%></h2>
+
+
+<h3>This supply is being used in <%= @supply.parties.count%> parties:</h3>
+<% @supply.parties.order_by_date.each do |p|%>
+
+    <%= render partial: '/parties/party', locals: {party: p} %>
+
+<% end %>

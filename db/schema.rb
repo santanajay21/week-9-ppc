@@ -10,13 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_22_031920) do
+ActiveRecord::Schema.define(version: 2020_08_10_054516) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "parties", force: :cascade do |t|
     t.string "name"
     t.date "date"
     t.integer "budget"
     t.boolean "private"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_parties_on_category_id"
+    t.index ["user_id"], name: "index_parties_on_user_id"
+  end
+
+  create_table "parties_supplies", force: :cascade do |t|
+    t.integer "party_id"
+    t.integer "supply_id"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["party_id"], name: "index_parties_supplies_on_party_id"
+    t.index ["supply_id"], name: "index_parties_supplies_on_supply_id"
+  end
+
+  create_table "supplies", force: :cascade do |t|
+    t.string "name"
+    t.integer "tot_quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_07_22_031920) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "uid"
+    t.string "provider"
   end
 
 end

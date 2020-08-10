@@ -1,0 +1,9 @@
+<h1><%= @category.name %> Parties </h1>
+
+
+<h3>There are <%= pluralize(@category.parties.count, 'party') %>  in this category: </h3>
+<% @category.parties.order_by_date.each do |p|%>
+
+    <%= render partial: '/parties/party', locals: {party: p} %>
+
+<% end  %>

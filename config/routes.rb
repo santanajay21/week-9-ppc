@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   root 'sessions#welcome'
-  resources :users
-  resources :parties, only: [:index,:show]
+  delete '/logout', to: 'sessions#destroy'
+  resources :supplies
+  resources :categories
+  resources :users, only: [:show]
+  resources :parties, only: [:index,:show, :new, :create]
 
 
   get '/auth/:provider/callback' => 'sessions#omniauth'

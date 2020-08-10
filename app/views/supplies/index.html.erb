@@ -1,0 +1,9 @@
+<h1>All Supplies</h1>
+
+<div><%= link_to 'Add a New Supply', new_supply_path %></div>
+
+<ul>
+    <% @supplies.each do |s| %>
+        <li><%= link_to s.name, supply_path(s) %></li>
+    <% end %>
+</ul>

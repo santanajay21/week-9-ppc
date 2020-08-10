@@ -1,9 +1,11 @@
 <h1> <%= @party.name %> </h1>
 <h3> <%= @party.date %> </h3>
 <p>Budget: $<%= @party.budget %></p>
+<p>Category: <%= link_to @party.category.try(:name), category_path(@party.category) %></p>
 
-<% if @party.private %>
-    <p><i>Private Party</i></p>
-<% else %>
-     <p><i>Public Party</i></p>
-<% end %>
+<h4>Supplies:</h4>
+<ul>
+    <% @party.parties_supplies.each do |ps| %>
+        <li> <%= ps.quantity %> <%= ps.supply.try(:name)%></li>
+    <% end %>
+</ul>

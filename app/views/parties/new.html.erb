@@ -1,0 +1,28 @@
+<h1>Make a New Party</h1>
+
+<%= render partial: '/errors/invalid', locals: {obj: @party}%>
+
+<%= form_for @party do |f|%>
+
+    <%= f.label :name%>
+    <%= f.text_field :name%> <br><br>
+
+    <%= f.label :date%>
+    <%= f.date_field :date%><br><br>
+
+    <%= f.label :budget%>
+    <%= f.number_field :budget%><br><br>
+
+    <%= f.label :category_id, "Category:"%>
+    <%= f.collection_select :category_id, Category.all, :id, :name %><br><br>
+
+    <h4>Add Party Supplies:</h4>
+    <%= f.fields_for :parties_supplies do |p|%>
+        <%= p.collection_select :supply_id, Supply.all, :id, :name, prompt: true  %>
+        <%= p.label :quantity %>
+        <%= p.number_field :quantity%><br><br>
+    <% end %>
+
+    <%= f.submit%>
+
+<% end %>
