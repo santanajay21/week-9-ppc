@@ -4,6 +4,6 @@
 
 <ul>
 <% @categories.each do |c|%>
-    <li><%= link_to c.name, category_path(c) %> - <%= c.parties.size %></li>
+    <li><%= link_to c.name, category_path(c) %> - <%= c.num_of_parties %></li>
 <% end %>
 </ul>

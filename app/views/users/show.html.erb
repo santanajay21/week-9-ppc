@@ -1,11 +1,10 @@
 <h1><%= @user.username%></h1>
 
 <h2>Your parties:</h2>
-<% @user.categories.each do |c| %>
+<% @user.categories.includes(parties: [:user]).each do |c| %>
 
     <h3><%= c.name %></h3>
-
-    <% c.parties.order_by_date.each do |p|%>
-        <%= render partial: '/parties/party', locals: {party: p} %>
-    <% end %>
+    <div>
+        <%= render c.parties %>
+    </div>
 <% end %>

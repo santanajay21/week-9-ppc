@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
     has_many :parties
+    has_many :ordered_parties, -> {order(:date)}, class_name: 'Party'
     has_many :categories, through: :parties
 
     def self.from_omniauth(response)

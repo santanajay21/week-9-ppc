@@ -9,7 +9,7 @@ class SuppliesController < ApplicationController
     end
 
     def index
-        @supplies = Supply.all
+        @supplies = Supply.includes(parties: [:user])
     end
 
     def create

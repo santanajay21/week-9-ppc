@@ -1,9 +1,8 @@
 <h1><%= @category.name %> Parties </h1>
 
 
-<h3>There are <%= pluralize(@category.parties.count, 'party') %>  in this category: </h3>
-<% @category.parties.order_by_date.each do |p|%>
+<h3>There are <%= pluralize(@category.parties.load.size, 'party') %>  in this category: </h3>
 
-    <%= render partial: '/parties/party', locals: {party: p} %>
+    <%= render @category.parties.includes(:user) %>
 
-<% end  %>
+
