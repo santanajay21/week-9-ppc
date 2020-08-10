@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
     end
 
     def index
-        @categories = Category.all
+        @categories = Category.order_by_party_count
     end
 
     def show

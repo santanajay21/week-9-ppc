@@ -1,8 +1,11 @@
 <h1><%= @user.username%></h1>
 
 <h2>Your parties:</h2>
-<% @user.parties.order_by_date.each do |p|%>
+<% @user.categories.each do |c| %>
 
-    <%= render partial: '/parties/party', local: {party: p} %>
+    <h3><%= c.name %></h3>
 
+    <% c.parties.order_by_date.each do |p|%>
+        <%= render partial: '/parties/party', locals: {party: p} %>
+    <% end %>
 <% end %>
