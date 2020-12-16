@@ -23,7 +23,6 @@
 - Make a Party model with the following attributes:
    - name
    - date
-   - supplies
    - budget
    - private (boolean)
 - Make an index view to display all party names and dates
