@@ -5,6 +5,8 @@
     <%= f.text_field :name %>
     <%= f.label :date %>
     <%= f.date_field :date %>
+    <%= f.collection_select :category_id , Category.all , :id , :name %>
     <%= f.submit %>
+
 
 <% end %>

@@ -23,6 +23,6 @@ class PartiesController < ApplicationController
     private
     
     def party_params
-        params.require(:party).permit(:date, :budget, :name)
+        params.require(:party).permit(:date, :budget, :name , :category_id )
     end
 end
